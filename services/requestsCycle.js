@@ -6,7 +6,7 @@ const requestsCycle = async (startNumber, endNumber) => {
     for (let currentNumberBlock = startNumber; endNumber < currentNumberBlock; currentNumberBlock--) {
         
         console.log(`Get transactions per block: ${currentNumberBlock}`);
-         await setDataRecentBlock(convert.decToHexConverting(currentNumberBlock))
+        await setDataRecentBlock(convert.decToHexConverting(currentNumberBlock))
     }
 }
 

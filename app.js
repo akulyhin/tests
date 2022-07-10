@@ -11,6 +11,8 @@ const path = require('path');
 
 // getBlocksUpdates();
 
+
+
   const bree = new Bree({
     logger: new Cabin(),
     jobs: [
@@ -22,8 +24,12 @@ const path = require('path');
     root: path.join(__dirname, 'services'),
   })
 
+ bree.start()
 
-  bree.start()
+
+
+
+
   
 
 

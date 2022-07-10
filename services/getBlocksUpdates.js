@@ -9,6 +9,7 @@ const getNumberRecentBlock = require('./getNumberRecentBlock');
 const requestsCycle = require('./requestsCycle');
 
 
+
 const {TOTAL_BLOCKS, DB_HOST} = process.env;
 
 const cabin = new Cabin({
@@ -25,8 +26,6 @@ const cabin = new Cabin({
   }
 
 (async () => {
-
-
   await mongoose
   .connect(DB_HOST)
 
@@ -66,9 +65,13 @@ const cabin = new Cabin({
         }
 
 
-          // signal to parent that the job is done
-          if (parentPort) parentPort.postMessage('done');
-          else process.exit(0);
+          setTimeout(() => {
+            // signal to parent that the job is done
+            if (parentPort) parentPort.postMessage('done');
+            else process.exit(0);
+          }, 15000)
+
+
 
 })();
 

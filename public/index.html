@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js" integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const baseUrl = 'http://localhost:3031/api';
+
+        axios.get(`${baseUrl}/library`, {
+            headers: {
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGZjOWEwZDc2OTA0YjU0YmU3N2FiOCIsImlhdCI6MTY0NTM4MjY1MSwiZXhwIjoxNjQ1NDE4NjUxfQ.mq3xLP4yYJL9-39Z3qp1Q_l-lrHeNj8GIH82lX03-J0`
+            }
+        })
+        .then(res => console.log(res.data.data.books))
+        .catch(err => {
+            console.log(err.response.data)
+        })
+
+        const data = {
+                bookTitle: 'Test',
+                author: 'test',
+                publicDate: '2022-05-02',
+                numbOfPages: 567
+            }
+
+        // axios.post(`${baseUrl}/library/addBook`, data, {
+        //     headers: {
+        //         'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGZjOWEwZDc2OTA0YjU0YmU3N2FiOCIsImlhdCI6MTY0NTM4MjY1MSwiZXhwIjoxNjQ1NDE4NjUxfQ.mq3xLP4yYJL9-39Z3qp1Q_l-lrHeNj8GIH82lX03-J0`
+        //     }
+        // })
+        // .then(res => console.log(res))
+        // .catch(error => console.log(error))
+
+    </script>
+</body>
+</html>

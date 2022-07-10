@@ -1,0 +1,31 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./bin/server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon ./bin/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "bree": "^9.1.1",
+    "cabin": "^9.1.2",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "ether-converter": "0.0.16",
+    "ethers": "^5.6.9",
+    "express": "^4.17.2",
+    "http-errors": "^2.0.0",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "query-string": "^7.1.1",
+    "signale": "^1.4.0",
+    "uuid": "^8.3.2"
+  }
+}

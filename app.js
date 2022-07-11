@@ -13,24 +13,18 @@ const path = require('path');
 
 
 
-  const bree = new Bree({
-    logger: new Cabin(),
-    jobs: [
-      {
-        name: 'getBlocksUpdates',
-        interval: '10s'
-      }
-    ],
-    root: path.join(__dirname, 'services'),
-  })
+//   const bree = new Bree({
+//     logger: new Cabin(),
+//     jobs: [
+//       {
+//         name: 'getBlocksUpdates',
+//         interval: '10s'
+//       }
+//     ],
+//     root: path.join(__dirname, 'services'),
+//   })
 
- bree.start()
-
-
-
-
-
-  
+//  bree.start()
 
 
 

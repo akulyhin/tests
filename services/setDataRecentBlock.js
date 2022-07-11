@@ -34,7 +34,7 @@ const setDataRecentBlock = async (currentNumberBlock) => {
         }
     })
 
-     await sleep(200)
+     await sleep(250)
 
 }
 

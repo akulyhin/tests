@@ -30,6 +30,7 @@ const getTransactions = async (req, res) => {
           }
 
         if (search === 'blockNumber' && !Number(searchQuery)) throw new BadRequest('Search by block number must have a number in the query')
+
         total = await Blocks.find({search: +searchQuery.trim()}).count().where(search).equals(searchQuery)
         transactions = await Blocks.find({search: +searchQuery.trim()}, "", {skip, limit: +limit})
         .where(search)
@@ -43,7 +44,7 @@ const getTransactions = async (req, res) => {
         transactions = await Blocks.find({}, "", {skip, limit: +limit}).sort({blockNumber: -1}).allowDiskUse(true)
     }
 
-    const totalPage = Math.floor(total / +limit);
+    const totalPage = Math.ceil(total / +limit);
 
     const numberRecentBlock = await getNumberRecentBlock();
 

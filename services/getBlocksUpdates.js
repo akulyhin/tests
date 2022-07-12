@@ -47,7 +47,7 @@ const cabin = new Cabin({
             
             // If the difference between the last block in the database and the last block in the API does not exceed the set number
             if (diffBlockNumber !== +TOTAL_BLOCKS) {
-                await requestsCycle(convert.hexToDecConverting(numberRecentBlock), latestBlockNumber[0].blockNumber);
+                await requestsCycle(convert.hexToDecConverting(numberRecentBlock), latestBlockNumber[0].blockNumber)
             }
 
             // If the difference between the last block in the database and the last block in the API exceeds the specified number

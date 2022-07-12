@@ -34,6 +34,7 @@ const getTransactions = async (req, res) => {
         transactions = await Blocks.find({search: +searchQuery.trim()}, "", {skip, limit: +limit})
         .where(search)
         .equals(searchQuery)
+        .sort({blockNumber: -1})
 
         if (!transactions[0]) throw new NotFound(`Transactions by the ${search} were not found.`)
     }

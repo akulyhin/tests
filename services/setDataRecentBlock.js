@@ -14,7 +14,6 @@ const setDataRecentBlock = async (currentNumberBlock) => {
     let dataRecentBlock = data.result;
 
 
-
    dataRecentBlock.transactions.forEach(async item => {
         const block = await Blocks.findOne({
             transactionId: item.hash
@@ -35,6 +34,7 @@ const setDataRecentBlock = async (currentNumberBlock) => {
     })
 
      await sleep(250)
+
 
 }
 

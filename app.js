@@ -7,10 +7,6 @@ const Cabin = require("cabin");
 const Bree = require('bree');
 const path = require('path');
 
-// const getBlocksUpdates = require('./services/getBlocksUpdates_copy');
-
-// getBlocksUpdates();
-
 
   const bree = new Bree({
     logger: new Cabin(),
@@ -23,8 +19,7 @@ const path = require('path');
     root: path.join(__dirname, 'services'),
   })
 
-//  bree.start()
-
+ bree.start()
 
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";

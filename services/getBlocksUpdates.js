@@ -64,13 +64,9 @@ const cabin = new Cabin({
         }
 
 
-          setTimeout(() => {
-            // signal to parent that the job is done
-            if (parentPort) parentPort.postMessage('done');
-            else process.exit(0);
-          }, 15000)
-
-
+        // signal to parent that the job is done
+        if (parentPort) parentPort.postMessage('done');
+        else process.exit(0);
 
 })();
 

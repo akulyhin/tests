@@ -13,27 +13,36 @@ const setDataRecentBlock = async (currentNumberBlock) => {
     )
     let dataRecentBlock = data.result;
 
+    await Promise.all(
+        dataRecentBlock.transactions.map(async item => {
+            return new Promise(async (resolve, reject) => {
+                try {
+                const block = await Blocks.findOne({
+                    transactionId: item.hash
+                })
 
-   dataRecentBlock.transactions.forEach(async item => {
-        const block = await Blocks.findOne({
-            transactionId: item.hash
-        })
-
-        if (!block && item.to) {
-            await Blocks.create({
-                blockNumber: convert.hexToDecConverting(item.blockNumber),
-                transactionId: item.hash,
-                senderAddress: item.from,
-                recipientsAddress: item.to,
-                blockConfirmations: 0,
-                date: convert.dateConverting(dataRecentBlock.timestamp),
-                value: convert.weiToEtherConverting(item.value),
-                transactionFee: convert.transactionFee(item.gas, item.gasPrice)
+                if (!block && item.to) {
+                    await Blocks.create({
+                        blockNumber: convert.hexToDecConverting(item.blockNumber),
+                        transactionId: item.hash,
+                        senderAddress: item.from,
+                        recipientsAddress: item.to,
+                        blockConfirmations: 0,
+                        date: convert.dateConverting(dataRecentBlock.timestamp),
+                        value: convert.weiToEtherConverting(item.value),
+                        transactionFee: convert.transactionFee(item.gas, item.gasPrice)
+                    })
+                }
+                resolve()
+            }
+                catch(e) {
+                    reject(e)
+                }
             })
-        }
-    })
+        })
+    )
 
-     await sleep(250)
+     await sleep(200)
 
 
 }
